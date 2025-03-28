@@ -2,29 +2,78 @@ package com.corridascompartilhadas.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import com.corridascompartilhadas.model.StatusMotorista;
 
-@Entity  // Indica que esta classe é uma entidade JPA
+@Entity
 public class Motorista {
 
-    @Id  // Define a chave primária
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-incremento
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)  // Campo obrigatório no banco
+    @Column(nullable = false)
     private String nome;
 
     private LocalDate dataNascimento;
 
-    @Column(unique = true, nullable = false)  // CPF único e obrigatório
+    @Column(unique = true, nullable = false)
     private String cpf;
 
     private String modeloCarro;
 
-    @Enumerated(EnumType.STRING)  // Armazena o valor como String (ex: "ATIVO")
-    private StatusMotorista status;  // Enum: ATIVO, INATIVO
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "ENUM('ATIVO', 'INATIVO')")
+    private StatusMotorista status;
 
-    // Getters e Setters (Obrigatórios para o JPA!)
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    // ... (gerar automaticamente com Alt+Insert no IntelliJ)
+    // Construtor padrão (obrigatório para JPA)
+    public Motorista() {}
+
+    // Getters e Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getModeloCarro() {
+        return modeloCarro;
+    }
+
+    public void setModeloCarro(String modeloCarro) {
+        this.modeloCarro = modeloCarro;
+    }
+
+    public StatusMotorista getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusMotorista status) {
+        this.status = status;
+    }
 }

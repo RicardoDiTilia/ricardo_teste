@@ -1,0 +1,11 @@
+com\corridascompartilhadas\controller\CorridaController.class
+com\corridascompartilhadas\CorridasCompartilhadasApplication.class
+com\corridascompartilhadas\repository\PassageiroRepository.class
+com\corridascompartilhadas\model\Motorista.class
+com\corridascompartilhadas\model\StatusMotorista.class
+com\corridascompartilhadas\repository\CorridaRepository.class
+com\corridascompartilhadas\model\Sexo.class
+com\corridascompartilhadas\model\Passageiro.class
+com\corridascompartilhadas\model\StatusCorrida.class
+com\corridascompartilhadas\controller\PassageiroController.class
+com\corridascompartilhadas\model\Corrida.class
