@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiBackendApplication<api>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.races.api.ApiBackendApplication",
+            "projectName": "api",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
