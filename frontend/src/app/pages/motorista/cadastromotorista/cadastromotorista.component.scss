@@ -1,0 +1,133 @@
+
+$dark-gray: #2c3e50;       
+$darker-gray: #1a252f;  
+$light-text: #ecf0f1;      
+$input-bg: #34495e;      
+$primary-accent: #3498db;
+$success-color: #2ecc71;   
+$error-color: #e74c3c;   
+
+:host {
+  display: block;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: $dark-gray;
+  min-height: 100vh;
+}
+
+form {
+  background: $darker-gray;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $light-text;
+
+  > div {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+}
+
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: lighten($primary-accent, 20%);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+input[type="text"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: $input-bg;
+  border: 2px solid darken($input-bg, 5%);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: $light-text;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-accent;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+  }
+
+  &::placeholder {
+    color: rgba($light-text, 0.6);
+  }
+
+  &:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: $error-color;
+  }
+}
+
+
+button[type="submit"] {
+  background-color: $success-color;
+  color: darken($darker-gray, 10%);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+
+  &:hover {
+    background-color: lighten($success-color, 5%);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background-color: $input-bg;
+    color: rgba($light-text, 0.5);
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.4);
+  }
+}
+
+
+.error-message {
+  color: lighten($error-color, 15%);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+
+@media (min-width: 600px) {
+  form {
+    padding: 2.5rem;
+    
+    > div {
+      margin-bottom: 1.75rem;
+    }
+  }
+
+  button[type="submit"] {
+    width: auto;
+    padding: 0.75rem 2rem;
+    display: block;
+    margin-left: auto;
+  }
+}

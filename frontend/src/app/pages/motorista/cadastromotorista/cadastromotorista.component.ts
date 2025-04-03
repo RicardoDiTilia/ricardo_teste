@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MotoristasLayoutComponent } from '../../../components/motoristas-layout/motoristas-layout.component';
 import {FormGroup,FormControl, ReactiveFormsModule, Validators} from '@angular/forms'
+import { MotoristaService } from '../../../services/motorista.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastromotorista',
@@ -12,8 +14,16 @@ import {FormGroup,FormControl, ReactiveFormsModule, Validators} from '@angular/f
   templateUrl: './cadastromotorista.component.html',
   styleUrl: './cadastromotorista.component.scss'
 })
-export class CadastroMotoristaComponent { 
-  MotoristaForm!: FormGroup;
+export class CadastroMotoristaComponent {
+  motoristaForm = new FormGroup({
+nome: new FormControl('', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]),
+      dataNascimento: new FormControl('', [Validators.required]),
+      cpf: new FormControl('', [Validators.required]),
+      modeloCarro: new FormControl('', [Validators.required]),
+      status: new FormControl('', [Validators.required]),
+      sexo: new FormControl('', [Validators.required]),
+  });
+/*  MotoristaForm!: FormGroup;
 
   constructor(){
     this.MotoristaForm = new FormGroup({
@@ -24,8 +34,19 @@ export class CadastroMotoristaComponent {
       status: new FormControl('', [Validators.required]),
       sexo: new FormControl('', [Validators.required]),
     })
-  }
+  }*/
+  constructor(
+    private motoristaService: MotoristaService,
+    private router: Router
+  ) {}
 
+  onSubmit() {
+    this.motoristaService.cadastrarMotorista(this.motoristaForm.value)
+      .subscribe({
+        next: () => this.router.navigate(['/motorista']),
+        error: (err: any) => console.error('Erro:', err)
+      });
+  }
 }
 
 

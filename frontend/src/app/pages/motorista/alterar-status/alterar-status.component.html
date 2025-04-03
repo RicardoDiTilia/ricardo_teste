@@ -1,0 +1,29 @@
+<app-motoristas-layout>
+    
+    <form>
+        <div class="container">
+            <h2>Alterar Status do Motorista</h2>
+            
+            <div class="form-group">
+              <label>Status Atual:</label>
+              <span>ATIVO</span> 
+            </div>
+          
+            <div class="form-group">
+              <label>Novo Status:</label>
+              <select [(ngModel)]="novoStatus">
+                <option value="ATIVO">Ativo</option>
+                <option value="INATIVO">Inativo</option>
+              </select>
+            </div>
+          
+            <div class="buttons">
+                <button (click)="salvarStatus()">Salvar</button>
+                <button (click)="cancelar()">Cancelar</button>
+            </div>
+          </div>
+          
+    </form >
+
+
+</app-motoristas-layout>
