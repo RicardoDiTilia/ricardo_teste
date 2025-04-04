@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-corridas-layout',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterModule,
+  ],
   templateUrl: './corridas-layout.component.html',
-  styleUrl: './corridas-layout.component.scss'
+  styleUrls: ['./corridas-layout.component.scss']
 })
 export class CorridasLayoutComponent {
 
 
 
 }
+
+
+
+

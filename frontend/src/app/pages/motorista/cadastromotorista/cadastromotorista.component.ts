@@ -16,25 +16,14 @@ import { Router } from '@angular/router';
 })
 export class CadastroMotoristaComponent {
   motoristaForm = new FormGroup({
-nome: new FormControl('', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]),
+nome: new FormControl('', [Validators.required]),
       dataNascimento: new FormControl('', [Validators.required]),
       cpf: new FormControl('', [Validators.required]),
       modeloCarro: new FormControl('', [Validators.required]),
       status: new FormControl('', [Validators.required]),
       sexo: new FormControl('', [Validators.required]),
   });
-/*  MotoristaForm!: FormGroup;
 
-  constructor(){
-    this.MotoristaForm = new FormGroup({
-      nome: new FormControl('', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]),
-      dataNascimento: new FormControl('', [Validators.required]),
-      cpf: new FormControl('', [Validators.required]),
-      modeloCarro: new FormControl('', [Validators.required]),
-      status: new FormControl('', [Validators.required]),
-      sexo: new FormControl('', [Validators.required]),
-    })
-  }*/
   constructor(
     private motoristaService: MotoristaService,
     private router: Router

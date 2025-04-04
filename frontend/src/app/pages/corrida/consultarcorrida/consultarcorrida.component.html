@@ -1,0 +1,44 @@
+<app-corridas-layout>
+    <div class="container">
+        <h2>Lista de Corridas</h2>
+      
+        <div *ngIf="loading" class="loading">
+          Carregando dados...
+        </div>
+      
+        <div *ngIf="!loading && corridas.length === 0" class="no-data">
+          Nenhuma corrida registrada.
+        </div>
+        <input
+        type="text"
+        [(ngModel)]="filtro"
+        placeholder="Buscar por ID, passageiro, motorista ou status..."
+        class="form-control"
+      />
+
+        <table *ngIf="!loading && corridas.length > 0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Passageiro</th>
+              <th>Motorista</th>
+              <th>Data</th>
+              <th>Status</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let corrida of corridasFiltradas()">
+              <td>{{ corrida.id }}</td>
+              <td>{{ corrida.passageiro.nome }}</td>
+              <td>{{ corrida.motorista.nome }}</td>
+              <td>{{ corrida.dataHora | date: 'short' }}</td>
+              <td>{{ corrida.status }}</td>
+              <td>R$ {{ corrida.valor | number:'1.2-2' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+  </app-corridas-layout>
+  

@@ -1,0 +1,26 @@
+<app-passageiros-layout>
+
+    <form *ngIf="passageiroForm" [formGroup]="passageiroForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label>Nome:</label>
+          <input type="text" formControlName="nome">
+        </div>
+        
+        <div>
+          <label>Data de Nascimento:</label>
+          <input type="date" formControlName="dataNascimento">
+        </div>
+        <div>
+          <label>CPF:</label>
+          <input type="text" formControlName="cpf">
+        </div>
+        <div>
+          <label>sexo:</label>
+          <input type="text" formControlName="sexo">
+        </div>
+      
+        <button type="submit">Cadastrar</button>
+      </form>
+
+
+</app-passageiros-layout>

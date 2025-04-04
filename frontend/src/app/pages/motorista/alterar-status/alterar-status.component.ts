@@ -3,9 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MotoristaService } from '../../../services/motorista.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MotoristasLayoutComponent } from '../../../components/motoristas-layout/motoristas-layout.component'; // ajuste o caminho conforme a estrutura
-
-
+import { MotoristasLayoutComponent } from '../../../components/motoristas-layout/motoristas-layout.component'; 
 @Component({
   standalone: true,
   selector: 'app-alterar-status',

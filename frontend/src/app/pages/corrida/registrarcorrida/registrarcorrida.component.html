@@ -1,0 +1,29 @@
+<app-corridas-layout>
+<div class="container">
+    <h2>Registrar Corrida</h2>
+  
+    <form [formGroup]="form" (ngSubmit)="registrar()">
+      <label>Passageiro:</label>
+      <select formControlName="passageiroId">
+        <option *ngFor="let p of passageiros" [value]="p.id">{{ p.nome }}</option>
+      </select>
+  
+      <label>Motorista:</label>
+      <select formControlName="motoristaId">
+        <option *ngFor="let m of motoristas" [value]="m.id">{{ m.nome }}</option>
+      </select>
+  
+      <label>Status:</label>
+      <select formControlName="status">
+        <option value="SOLICITADA">Solicitada</option>
+        <option value="EM_ANDAMENTO">Em andamento</option>
+        <option value="CONCLUIDA">Concluida</option>
+        <option value="CANCELADA">Cancelada</option>
+      </select>
+      <label>Valor:</label>
+      <input type="number" formControlName="valor" step="0.01" />
+  
+      <button type="submit">Registrar Corrida</button>
+    </form>
+  </div>
+  </app-corridas-layout>

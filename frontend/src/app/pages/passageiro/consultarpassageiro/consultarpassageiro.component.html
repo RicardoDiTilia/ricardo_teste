@@ -1,0 +1,38 @@
+<app-passageiros-layout>
+    <div class="container">
+      <h2>Lista de Passageiros</h2>
+  
+      <input
+        type="text"
+        class="input-pesquisa"
+        placeholder="Buscar por nome, CPF ou ID"
+        [(ngModel)]="filtro"
+      />
+  
+      <div *ngIf="loading" class="loading">
+        Carregando dados...
+      </div>
+  
+      <div *ngIf="!loading && passageirosFiltrados().length === 0" class="no-data">
+        Nenhum passageiro encontrado.
+      </div>
+  
+      <table *ngIf="!loading && passageirosFiltrados().length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let passageiro of passageirosFiltrados()">
+            <td>{{ passageiro.id }}</td>
+            <td>{{ passageiro.nome }}</td>
+            <td>{{ passageiro.cpf }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-passageiros-layout>
+  

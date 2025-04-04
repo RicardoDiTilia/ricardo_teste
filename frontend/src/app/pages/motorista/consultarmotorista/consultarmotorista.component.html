@@ -1,37 +1,43 @@
 <app-motoristas-layout>
-    <div class="container">
-      <h2>Lista de Motoristas</h2>
-      
-      <div *ngIf="loading" class="loading">
-        Carregando dados...
-      </div>
-  
-      <div *ngIf="!loading && motoristas.length === 0" class="no-data">
-        Nenhum motorista cadastrado.
-      </div>
-  
-      <table *ngIf="!loading && motoristas.length > 0">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let motorista of motoristas">
-            <td>{{ motorista.id }}</td>
-            <td>{{ motorista.nome }}</td>
-            <td>{{ motorista.cpf }}</td>
-            <td>
-              <span [class]="'status-badge ' + motorista.status.toLowerCase()">
-                {{ motorista.status }}
-              </span>
-            </td>
+  <div class="container">
+    <h2>Lista de Motoristas</h2>
 
-          </tr>
-        </tbody>
-      </table>
+    <input
+      type="text"
+      class="input-pesquisa"
+      placeholder="Buscar por nome, CPF ou ID"
+      [(ngModel)]="filtro"
+    />
+
+    <div *ngIf="loading" class="loading">
+      Carregando dados...
     </div>
-  </app-motoristas-layout>
+
+    <div *ngIf="!loading && motoristasFiltrados().length === 0" class="no-data">
+      Nenhum motorista encontrado.
+    </div>
+
+    <table *ngIf="!loading && motoristasFiltrados().length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let motorista of motoristasFiltrados()">
+          <td>{{ motorista.id }}</td>
+          <td>{{ motorista.nome }}</td>
+          <td>{{ motorista.cpf }}</td>
+          <td>
+            <span [class]="'status-badge ' + motorista.status.toLowerCase()">
+              {{ motorista.status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</app-motoristas-layout>
