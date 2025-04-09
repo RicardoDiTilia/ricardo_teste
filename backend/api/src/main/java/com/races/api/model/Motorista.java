@@ -1,30 +1,15 @@
 package com.races.api.model;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
-// import com.races.api.model.StatusMotorista; nao esta em uso
 
-@Entity
 public class Motorista {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
     private String nome;
-
     private LocalDate dataNascimento;
-
-    @Column(unique = true, nullable = false)
     private String cpf;
-
     private String modeloCarro;
-
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "ENUM('ATIVO', 'INATIVO')")
     private StatusMotorista status;
-
 
     public Motorista() {}
 

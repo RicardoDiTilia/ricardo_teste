@@ -1,26 +1,13 @@
 package com.races.api.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
 import java.time.LocalDate;
 
-@Entity
 public class Passageiro {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
     private String nome;
-
     private LocalDate dataNascimento;
-
-    @Column(unique = true, nullable = false)
-    @Pattern(regexp = "\\d{3}\\.?\\d{3}\\.?\\d{3}\\-?\\d{2}", message = "CPF inválido")
     private String cpf;
-
-    @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
     public Passageiro() {}
